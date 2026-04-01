@@ -4,14 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="media/player.png" type="image/x-icon">
     <title>Byte-Boy | Thanks for downloading!</title>
 </head>
 <body style="overflow: hidden;">
     <main>
         <h1 style="font-family: 'ByteBoy Title'; font-weight: normal; font-size: 4em; text-align: center; margin-bottom: 20px;">Thanks for downloading!</h1>
         <p>Your download should start soon. If not, try cliking the link below.</p>
-        <a href="" style="margin-top: 1em; color: #0098dc; font-family: 'Pixel Boy Bold';">Retry download</a>
+        <a href="" download="media/Byte-Boy-v1.1.0.zip" style="margin-top: 1em; color: #0098dc; font-family: 'Pixel Boy Bold';">Retry download</a>
     </main>
+
+    <script>
+        window.addEventListener("load", function() {
+            try {
+                const fileURL = 'media/Byte-Boy-v1.1.0.zip'
+
+                const link = document.createElement("a")
+                link.href = fileURL;
+                link.download = 'Byte-Boy-v1.1.0.zip';
+                link.style.display = 'none';
+
+                document.body.appendChild(link);
+
+                link.click();
+
+                // Clean up
+                document.body.removeChild(link);
+            } catch (error) {
+                console.error('File download failed:', error);
+            }
+        })
+    </script>
 
 </body>
 </html>
